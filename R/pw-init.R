@@ -2,6 +2,8 @@
 #'
 #' This function initializes a Playwright project in the tests folder.
 #'
+#' @param where The path to the package
+#'
 #' @export
 #' @examples
 #' \dontrun{
