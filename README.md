@@ -3,6 +3,7 @@
 
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![R-CMD-check](https://github.com/ThinkR-open/pw/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ThinkR-open/pw/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The purpose of `{pw}` is to streamline the use of [Playwright](https://playwright.dev/) for testing your `{golem}` applications.
@@ -39,20 +40,32 @@ This function will:
    - `tests/playwright/tests/default.test.ts` (created)
    - `tests/testthat/test-playwright.R` (created)
 
-After setup, run `devtools::test()` to confirm that everything is functioning correctly.
+After setup, run `devtools::test()` to confirm that everything is functioning correctly
 
-## Run the tests
+### Running the Tests
 
-If you want to run the Playwright tests, call:
+To execute the Playwright tests, use the following command in R:
 
 ```r
 pw::pw_test()
 ```
 
-## Writing Your Own Tests
+### Writing Your Own Tests
 
-Customize the file `tests/playwright/tests/default.test.ts`, or create new test files in the same directory to develop your own Playwright tests.
+To create or modify tests, edit the file `tests/playwright/tests/default.test.ts` or add new test files in the same directory to extend your Playwright test suite.
+
+### Running Playwright Commands from the Terminal
+
+For manual execution of Playwright commands, navigate to the `tests/playwright` directory:
+
+```bash
+cd tests/playwright
+npx playwright test
+```
 
 ## Roadmap
 
-- [ ] Integrate support for the Playwright codegen toolkit.
+- [ ] Add support for the Playwright codegen toolkit.
+- [ ] Enable viewing of test reports directly.
+
+**Note:** The full Playwright Node.js API will not be wrapped in R. For advanced use cases, you may need to run commands directly from the terminal.
