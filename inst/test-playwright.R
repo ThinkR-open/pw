@@ -2,6 +2,9 @@ test_that(
   "playwright tests are working",
   {
     skip_on_cran()
+    skip_if_not(
+      pw::npx_is_available()
+    )
     withr::with_dir(
       "../playwright",
       {
