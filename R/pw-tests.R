@@ -10,6 +10,7 @@ pw_test <- function(
   where = golem::get_golem_wd(),
   ...
 ){
+  stop_if_npx_not_available()
   with_dir(
     where,
     {

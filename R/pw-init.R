@@ -21,11 +21,7 @@ pw_init <- function(
   where = golem::get_golem_wd(),
   ...
 ) {
-  if (unname(Sys.which("npx")) == "") {
-    cli_abort(
-      "npx is not installed. Please install Node.js to use Playwright."
-    )
-  }
+  stop_if_npx_not_available()
   with_dir(
     where,
     {
