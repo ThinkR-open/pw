@@ -3,6 +3,7 @@
 #' This function initializes a Playwright project in the tests folder.
 #'
 #' @param where The path to the package
+#' @param ... Additional arguments to pass to `npx create-playwright@latest`
 #'
 #' @export
 #' @examples
@@ -17,7 +18,8 @@
 #' @importFrom here here
 
 pw_init <- function(
-  where = golem::get_golem_wd()
+  where = golem::get_golem_wd(),
+  ...
 ) {
   if (unname(Sys.which("npx")) == "") {
     cli_abort(
