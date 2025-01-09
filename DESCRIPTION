@@ -1,0 +1,20 @@
+Package: pw
+Title: Test your 'golem' Apps with 'Playwright'
+Version: 0.0.0.9000
+Authors@R:
+    person("Colin", "Fay", , "contact@colinfay.me", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0001-7343-1846"))
+Description: Test your 'golem' Apps with 'Playwright'.
+License: MIT + file LICENSE
+Imports:
+    cli,
+    crayon,
+    devtools,
+    fs,
+    golem,
+    here,
+    usethis,
+    withr
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
