@@ -9,11 +9,9 @@ License: MIT + file LICENSE
 Imports:
     cli,
     crayon,
-    devtools,
     fs,
     golem,
     here,
-    usethis,
     withr
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
