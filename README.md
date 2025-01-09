@@ -41,11 +41,18 @@ This function will:
 
 After setup, run `devtools::test()` to confirm that everything is functioning correctly.
 
+## Run the tests
+
+If you want to run the Playwright tests, call:
+
+```r
+pw::pw_test()
+```
+
 ## Writing Your Own Tests
 
 Customize the file `tests/playwright/tests/default.test.ts`, or create new test files in the same directory to develop your own Playwright tests.
 
 ## Roadmap
 
-- [ ] Enable running tests directly via an R command.
 - [ ] Integrate support for the Playwright codegen toolkit.
