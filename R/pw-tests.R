@@ -11,6 +11,9 @@ pw_test <- function(
   ...
 ){
   stop_if_npx_not_available()
+  stop_if_playwright_skeleton_not_present(
+    where = where
+  )
   with_dir(
     where,
     {
