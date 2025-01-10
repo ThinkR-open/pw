@@ -1,3 +1,6 @@
+# For mocking purpose
+sys_which <- Sys.which
+cli__abort <- cli::cli_abort
 #' Check if 'npx' is available in the system PATH
 #'
 #' @return TRUE if 'npx' is available, FALSE otherwise
@@ -14,7 +17,7 @@ npx_is_available <- function() {
 #' @rdname npx-is-available
 stop_if_npx_not_available <- function() {
   if (!npx_is_available()) {
-    cli_abort(
+    cli__abort(
       "npx is not installed. Please install Node.js to use Playwright."
     )
   }

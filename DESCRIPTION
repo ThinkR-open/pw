@@ -1,6 +1,6 @@
 Package: pw
 Title: Test your 'golem' Apps with 'Playwright'
-Version: 0.0.0.9004
+Version: 0.0.0.9005
 Authors@R:
     person("Colin", "Fay", , "contact@colinfay.me", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-7343-1846"))
@@ -16,6 +16,6 @@ Imports:
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
-Suggests: 
+Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3

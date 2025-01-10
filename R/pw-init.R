@@ -25,11 +25,11 @@ pw_init <- function(
   with_dir(
     where,
     {
-      if (!file.exists(here("app.R"))) {
-        add_positconnect_file(open = FALSE)
+      if (!file.exists(fs::path(where, "app.R"))) {
+        add_positconnect_file(pkg = where, open = FALSE)
       }
       if (!dir_exists("tests")) {
-        cli_abort(
+        cli__abort(
           "No tests folder found. Please run `usethis::use_testthat()` first."
         )
       }
