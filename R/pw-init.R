@@ -25,7 +25,7 @@ pw_init <- function(
   with_dir(
     where,
     {
-      if (file.exists(here("app.R"))) {
+      if (!file.exists(here("app.R"))) {
         add_positconnect_file(open = FALSE)
       }
       if (!dir_exists("tests")) {
