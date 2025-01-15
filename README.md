@@ -65,7 +65,6 @@ npx playwright test
 
 ## Roadmap
 
-- [ ] Add support for the Playwright codegen toolkit.
 - [ ] Enable viewing of test reports directly.
 
 **Note:** The full Playwright Node.js API will not be wrapped in R. For advanced use cases, you may need to run commands directly from the terminal.

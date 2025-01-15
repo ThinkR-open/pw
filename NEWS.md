@@ -1,5 +1,7 @@
 # pw (development version)
 
+* `pw_codegen()` can be called to launch the code generator
+
 * `pw_test()` stops if the playwright skeleton is missing
 
 * Functions to test if npx is in the PATH
