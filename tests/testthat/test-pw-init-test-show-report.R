@@ -3,6 +3,7 @@ test_that("multiplication works", {
     npx_is_available()
   )
   temp_golem <- file.path(tempdir(), "golem")
+  unlink(temp_golem, recursive = TRUE, force = TRUE)
   on.exit({
     unlink(temp_golem, recursive = TRUE)
   })
@@ -77,8 +78,9 @@ test_that("multiplication works", {
     {
       future::plan(future::multisession)
       pw_show_report_ <- force(pw_show_report)
+      port <- httpuv::randomPort()
       ftr_report <- future::future({
-        pw_show_report_(where = ".", "--port=8787")
+        pw_show_report_(where = ".", sprintf("--port=%s", port))
       })
       on.exit({
         tools::pskill(
@@ -89,7 +91,7 @@ test_that("multiplication works", {
       expect_true(
         attr(
           curlGetHeaders(
-            "http://localhost:8787"
+            sprintf("http://localhost:%s", port)
           ),
           "status"
         ) == 200

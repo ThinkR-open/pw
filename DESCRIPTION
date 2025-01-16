@@ -13,11 +13,15 @@ Imports:
     golem,
     here,
     pkgload,
+    processx,
+    rlang,
+    uuid,
     withr
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 Suggests:
     future,
+    httpuv,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
