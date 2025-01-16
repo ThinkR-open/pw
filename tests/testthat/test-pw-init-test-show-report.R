@@ -12,7 +12,8 @@ test_that("multiplication works", {
     path = temp_golem,
     package_name = "pwtest",
     open = FALSE,
-    overwrite = TRUE
+    overwrite = TRUE,
+    check_name = FALSE
   )
 
   testthat::with_mocked_bindings(
