@@ -4,10 +4,14 @@
 \alias{pw_codegen}
 \title{Run the code generator}
 \usage{
-pw_codegen(where = golem::get_golem_wd())
+pw_codegen(where = golem::get_golem_wd(), R_path = NULL, ...)
 }
 \arguments{
 \item{where}{The root directory of your golem project}
+
+\item{R_path}{The path to the R executable}
+
+\item{...}{args passed to npx playwright codegen}
 }
 \description{
 This function runs the Playwright code generator.

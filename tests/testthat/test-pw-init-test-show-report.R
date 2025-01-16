@@ -7,7 +7,7 @@ test_that("multiplication works", {
     unlink(temp_golem, recursive = TRUE)
   })
   options("usethis.quiet" = TRUE)
-  res <- golem::create_golem(
+  ftr_report <- golem::create_golem(
     path = temp_golem,
     package_name = "pwtest",
     open = FALSE,
@@ -69,6 +69,30 @@ test_that("multiplication works", {
     {
       expect_silent(
         pw_test(where = ".")
+      )
+    }
+  )
+  withr::with_dir(
+    temp_golem,
+    {
+      future::plan(future::multisession)
+      pw_show_report_ <- force(pw_show_report)
+      ftr_report <- future::future({
+        pw_show_report_(where = ".", "--port=8787")
+      })
+      on.exit({
+        tools::pskill(
+          ftr_report$workers[[ftr_report$node]]$session_info$process$pid
+        )
+      })
+      Sys.sleep(1)
+      expect_true(
+        attr(
+          curlGetHeaders(
+            "http://localhost:8787"
+          ),
+          "status"
+        ) == 200
       )
     }
   )
