@@ -1,6 +1,10 @@
 # For mocking purpose
-sys_which <- Sys.which
-cli__abort <- cli::cli_abort
+sys_which <- function(...){
+  Sys.which(...)
+}
+cli__abort <- function(...){
+  cli::cli_abort(...)
+}
 #' Check if 'npx' is available in the system PATH
 #'
 #' @return TRUE if 'npx' is available, FALSE otherwise
