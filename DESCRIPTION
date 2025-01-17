@@ -23,5 +23,6 @@ RoxygenNote: 7.3.2
 Suggests:
     future,
     httpuv,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    usethis
 Config/testthat/edition: 3
