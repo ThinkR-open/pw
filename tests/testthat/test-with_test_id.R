@@ -1,5 +1,5 @@
 test_that("with_test_id works", {
-  tag <- shiny::div()
+  tag <- htmltools::div()
   test_id <- "test-id"
   tag_with_test_id <- with_test_id(tag, test_id)
   expect_equal(

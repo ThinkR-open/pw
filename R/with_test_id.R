@@ -6,7 +6,7 @@
 #' @return A shiny tag with the data-testid attribute added
 #' @export
 with_test_id <- function(tag, test_id){
-  shiny::tagAppendAttributes(
+  htmltools::tagAppendAttributes(
     tag,
     `data-testid` = test_id
   )
