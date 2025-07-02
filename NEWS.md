@@ -1,13 +1,15 @@
 # pw (development version)
 
-* `with_test_id()` adds a `data-testid` attribute to a shiny tag. This is useful for testing with `getByTestId` in Playwright.
+- `pw_install()` run both `npm install` & `npx playwright install` in the test directory. This is mainly to be used when a package has been inited somewhere else.
 
-* `pw_show_report()` can be called to open the test report
+- `with_test_id()` adds a `data-testid` attribute to a shiny tag. This is useful for testing with `getByTestId` in Playwright.
 
-* `pw_codegen()` can be called to launch the code generator
+- `pw_show_report()` can be called to open the test report
 
-* `pw_test()` stops if the playwright skeleton is missing
+- `pw_codegen()` can be called to launch the code generator
 
-* Functions to test if npx is in the PATH
+- `pw_test()` stops if the playwright skeleton is missing
 
-* Initial version with `pw_init()` & `pw_test()`
+- Functions to test if npx is in the PATH
+
+- Initial version with `pw_init()` & `pw_test()`
