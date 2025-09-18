@@ -1,8 +1,8 @@
 # For mocking purpose
-sys_which <- function(...){
+sys_which <- function(...) {
   Sys.which(...)
 }
-cli__abort <- function(...){
+cli__abort <- function(...) {
   cli::cli_abort(...)
 }
 #' Check if 'npx' is available in the system PATH

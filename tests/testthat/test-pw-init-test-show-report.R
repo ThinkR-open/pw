@@ -95,7 +95,8 @@ test_that("multiplication works", {
             sprintf("http://localhost:%s", port)
           ),
           "status"
-        ) == 200
+        ) ==
+          200
       )
     }
   )
