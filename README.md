@@ -1,9 +1,10 @@
-
 # pw
 
 <!-- badges: start -->
+
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R-CMD-check](https://github.com/ThinkR-open/pw/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ThinkR-open/pw/actions/workflows/R-CMD-check.yaml)
+
 <!-- badges: end -->
 
 The purpose of `{pw}` is to streamline the use of [Playwright](https://playwright.dev/) for testing your `{golem}` applications.
@@ -12,11 +13,24 @@ The purpose of `{pw}` is to streamline the use of [Playwright](https://playwrigh
 
 You can install the development version of `{pw}` like so:
 
-``` r
+```r
 pak::pak("thinkr-open/pw")
 ```
 
 ## Workflow
+
+```mermaid
+flowchart
+   subgraph dev["Development"]
+      test["tests"] --> |"Generate"| pw_codegen["pw_codegen()"]
+      test --> |"Run"| pw_test["pw_test()"]
+      test --> |"View"| pw_show_report["pw_show_report()"]
+   end
+   subgraph setup["Setup"]
+      is_this["Is this a new project"] -->|"Yes"| init["pw_init()"]
+      is_this -->|"No"| existing["pw_install()"]
+   end
+```
 
 ### Requirements
 
