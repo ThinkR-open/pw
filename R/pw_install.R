@@ -44,7 +44,3 @@ pw_install <- function(
     }
   )
 }
-
-list("foo", {
-  "bar"
-})
