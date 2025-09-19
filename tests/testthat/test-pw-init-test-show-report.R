@@ -2,10 +2,20 @@ test_that("multiplication works", {
   skip_if_not(
     npx_is_available()
   )
-  temp_golem <- file.path(tempdir(), "golem")
-  unlink(temp_golem, recursive = TRUE, force = TRUE)
+  temp_golem <- file.path(
+    tempdir(),
+    "golem"
+  )
+  unlink(
+    temp_golem,
+    recursive = TRUE,
+    force = TRUE
+  )
   on.exit({
-    unlink(temp_golem, recursive = TRUE)
+    unlink(
+      temp_golem,
+      recursive = TRUE
+    )
   })
   options("usethis.quiet" = TRUE)
   ftr_report <- golem::create_golem(
@@ -33,7 +43,10 @@ test_that("multiplication works", {
     ),
     recursive = TRUE
   )
-  pw_init(temp_golem, "--quiet")
+  pw_init(
+    temp_golem,
+    "--quiet"
+  )
   expect_true(
     file.exists(
       file.path(
@@ -77,18 +90,30 @@ test_that("multiplication works", {
   withr::with_dir(
     temp_golem,
     {
-      future::plan(future::multisession)
-      pw_show_report_ <- force(pw_show_report)
       port <- httpuv::randomPort()
-      ftr_report <- future::future({
-        pw_show_report_(where = ".", sprintf("--port=%s", port))
-      })
+      pw_show_report_ <- force(
+        pw_show_report
+      )
+      r <- callr::r_bg(
+        package = TRUE,
+        function(
+          pw_show_report = pw_show_report_,
+          port_ = port
+        ) {
+          pw_show_report(
+            where = ".",
+            sprintf(
+              "--port=%s",
+              port_
+            )
+          )
+        }
+      )
+
       on.exit({
-        tools::pskill(
-          ftr_report$workers[[ftr_report$node]]$session_info$process$pid
-        )
+        r$kill()
       })
-      Sys.sleep(1)
+      Sys.sleep(2)
       expect_true(
         attr(
           curlGetHeaders(
