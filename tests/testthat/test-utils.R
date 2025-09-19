@@ -57,7 +57,7 @@ test_that("stop_if_playwright_skeleton_not_present works as expected", {
   )
 
   # Test when the Playwright skeleton is present
-  expect_silent(
+  expect_error(
     stop_if_playwright_skeleton_not_present(
       where = mock_golem_wd
     )
