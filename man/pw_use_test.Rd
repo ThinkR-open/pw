@@ -2,7 +2,7 @@
 % Please edit documentation in R/pw-use_test.R
 \name{pw_use_test}
 \alias{pw_use_test}
-\title{Show the Playwright report}
+\title{Add a new Playwright test}
 \usage{
 pw_use_test(name, where = golem::get_golem_wd())
 }
@@ -12,5 +12,5 @@ pw_use_test(name, where = golem::get_golem_wd())
 \item{where}{The path to the package}
 }
 \description{
-Show the Playwright report
+This function adds a new Playwright test file to the \code{tests/playwright/tests} directory.
 }

@@ -1,4 +1,6 @@
-#' Show the Playwright report
+#' Add a new Playwright test
+#'
+#' This function adds a new Playwright test file to the `tests/playwright/tests` directory.
 #'
 #' @param name The name of the test to add (without .test.ts extension)
 #' @param where The path to the package
@@ -21,15 +23,17 @@ pw_use_test <- function(
     {
       with_dir("tests", {
         with_dir("playwright", {
-          file_copy(
-            pw_sys_files(
-              "default.test.ts"
-            ),
-            sprintf(
-              "%s.test.ts",
-              name
+          with_dir("tests", {
+            file_copy(
+              pw_sys_files(
+                "default.test.ts"
+              ),
+              sprintf(
+                "%s.test.ts",
+                name
+              )
             )
-          )
+          })
         })
       })
     }

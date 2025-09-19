@@ -10,7 +10,8 @@ test_that("pw_use_test works", {
     file.path(
       temp_dir,
       "tests",
-      "playwright"
+      "playwright",
+      "tests"
     ),
     recursive = TRUE
   )
@@ -30,6 +31,7 @@ test_that("pw_use_test works", {
         temp_dir,
         "tests",
         "playwright",
+        "tests",
         "my_test.test.ts"
       )
     )
