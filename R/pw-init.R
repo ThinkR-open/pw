@@ -33,44 +33,47 @@ pw_init <- function(
           "No tests folder found. Please run `usethis::use_testthat()` first."
         )
       }
-      with_dir(
-        "tests",
-        {
-          dir_create("playwright")
-          with_dir(
-            "playwright",
-            {
-              system2(
-                "npx",
-                c(
-                  "create-playwright@latest",
-                  "--",
-                  "--yes",
-                  "--no-examples",
-                  "--quiet"
-                )
-              )
-              file_delete("playwright.config.ts")
-              file_copy(
-                pw_sys_files("playwright.config.ts"),
-                "playwright.config.ts"
-              )
-              dir_create("tests")
-              file_copy(
-                pw_sys_files("default.test.ts"),
-                "tests/default.test.ts"
-              )
-            }
+      with_dir("tests", {
+        dir_create("playwright")
+        with_dir("playwright", {
+          system2(
+            "npx",
+            c(
+              "create-playwright@latest",
+              "--",
+              "--yes",
+              "--no-examples",
+              "--quiet"
+            )
+          )
+          file_delete(
+            "playwright.config.ts"
           )
           file_copy(
-            pw_sys_files("test-playwright.R"),
-            "testthat/test-playwright.R"
+            pw_sys_files(
+              "playwright.config.ts"
+            ),
+            "playwright.config.ts"
           )
-        }
-      )
+          dir_create(
+            "tests"
+          )
+          file_copy(
+            pw_sys_files(
+              "default.test.ts"
+            ),
+            "tests/default.test.ts"
+          )
+        })
+        file_copy(
+          pw_sys_files(
+            "test-playwright.R"
+          ),
+          "testthat/test-playwright.R"
+        )
+      })
     }
   )
-
 
   cli_alert_success(
     "Playwright project initialized successfully.\nTry running devtools::test() to see the tests in action."

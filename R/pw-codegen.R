@@ -25,18 +25,31 @@ pw_codegen <- function(
     go_for_pkgload <- FALSE
   }
   if (is.null(R_path)) {
-    if (tolower(.Platform$OS.type) == "windows") {
-      r_ <- normalizePath(file.path(
-        Sys.getenv("R_HOME"),
-        "bin",
-        "R.exe"
-      ))
+    if (
+      tolower(
+        .Platform$OS.type
+      ) ==
+        "windows"
+    ) {
+      r_ <- normalizePath(
+        file.path(
+          Sys.getenv(
+            "R_HOME"
+          ),
+          "bin",
+          "R.exe"
+        )
+      )
     } else {
-      r_ <- normalizePath(file.path(
-        Sys.getenv("R_HOME"),
-        "bin",
-        "R"
-      ))
+      r_ <- normalizePath(
+        file.path(
+          Sys.getenv(
+            "R_HOME"
+          ),
+          "bin",
+          "R"
+        )
+      )
     }
   } else {
     r_ <- R_path
@@ -67,50 +80,52 @@ pw_codegen <- function(
   }
 
   if (!shinyproc$is_alive()) {
-    cli::cli_alert_danger("Failed to start the app, please check the logs")
-    cat(shinyproc$read_error())
+    cli::cli_alert_danger(
+      "Failed to start the app, please check the logs"
+    )
+    cat(
+      shinyproc$read_error()
+    )
     stop()
   }
   with_dir(
     where,
     {
-      with_dir(
-        "tests",
-        {
-          with_dir(
-            "playwright",
-            {
-              output_file <- file.path(
-                "tests",
-                sprintf(
-                  "%s.test.ts",
-                  uuid::UUIDgenerate()
-                )
-              )
-              fs::file_create(output_file)
-              output_file <- fs::path_abs(output_file)
-              on.exit({
-                cat(
-                  "Code generation done, the file is available at:",
-                  output_file,
-                  "\n"
-                )
-              })
-              system2(
-                "npx",
-                c(
-                  "playwright",
-                  "codegen",
-                  "http://localhost:3000",
-                  "--output",
-                  output_file,
-                  ...
-                )
-              )
-            }
+      with_dir("tests", {
+        with_dir("playwright", {
+          output_file <- file.path(
+            "tests",
+            sprintf(
+              "%s.test.ts",
+              uuid::UUIDgenerate()
+            )
           )
-        }
-      )
+          fs::file_create(
+            output_file
+          )
+          output_file <- fs::path_abs(
+            output_file
+          )
+          on.exit({
+            cat(
+              "Code generation done, the file is available at:",
+              output_file,
+              "\n"
+            )
+          })
+          system2(
+            "npx",
+            c(
+              "playwright",
+              "codegen",
+              "http://localhost:3000",
+              "--output",
+              output_file,
+              ...
+            )
+          )
+        })
+      })
     }
   )
 }
