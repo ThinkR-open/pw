@@ -38,7 +38,8 @@ pw_install <- function(
         "npx",
         c(
           "playwright",
-          "install"
+          "install",
+          "--with-deps"
         )
       )
     }
