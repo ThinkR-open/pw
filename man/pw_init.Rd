@@ -4,12 +4,18 @@
 \alias{pw_init}
 \title{Initialize Playwright}
 \usage{
-pw_init(where = golem::get_golem_wd(), ...)
+pw_init(
+  where = golem::get_golem_wd(),
+  create_playwright_version = "1.17.138",
+  create_playwright_args = c("--no-examples", "--quiet")
+)
 }
 \arguments{
 \item{where}{The path to the package}
 
-\item{...}{Additional arguments to pass to \verb{npx create-playwright@latest}}
+\item{create_playwright_version}{Version of create-playwright to use}
+
+\item{create_playwright_args}{Additional arguments to pass to npx create-playwright}
 }
 \description{
 This function initializes a Playwright project in the tests folder.

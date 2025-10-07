@@ -3,7 +3,8 @@
 #' This function initializes a Playwright project in the tests folder.
 #'
 #' @param where The path to the package
-#' @param ... Additional arguments to pass to `npx create-playwright@latest`
+#' @param create_playwright_version Version of create-playwright to use
+#' @param create_playwright_args Additional arguments to pass to npx create-playwright
 #'
 #' @export
 #' @examples
@@ -19,7 +20,11 @@
 
 pw_init <- function(
   where = golem::get_golem_wd(),
-  ...
+  create_playwright_version = "1.17.138",
+  create_playwright_args = c(
+    "--no-examples",
+    "--quiet"
+  )
 ) {
   stop_if_npx_not_available()
   with_dir(
@@ -39,16 +44,16 @@ pw_init <- function(
           system2(
             "npx",
             c(
-              "create-playwright@latest",
-              "--",
-              "--yes",
-              "--no-examples",
-              "--quiet"
+              sprintf("create-playwright@%s", create_playwright_version),
+              create_playwright_args
             )
           )
-          file_delete(
-            "playwright.config.ts"
-          )
+          if (fs::file_exists("playwright.config.ts")) {
+            file_delete(
+              "playwright.config.ts"
+            )
+          }
+
           file_copy(
             pw_sys_files(
               "playwright.config.ts"
