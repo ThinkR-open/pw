@@ -6,7 +6,6 @@
 #' @inheritParams pw_init
 #'
 #' @export
-
 pw_install <- function(
   where = golem::get_golem_wd()
 ) {

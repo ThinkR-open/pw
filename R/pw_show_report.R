@@ -7,7 +7,7 @@
 pw_show_report <- function(
   where = golem::get_golem_wd(),
   ...
-){
+) {
   stop_if_npx_not_available()
   stop_if_playwright_skeleton_not_present(
     where = where
@@ -15,24 +15,18 @@ pw_show_report <- function(
   with_dir(
     where,
     {
-      with_dir(
-        "tests",
-        {
-          with_dir(
-            "playwright",
-            {
-              system2(
-                "npx",
-                c(
-                  "playwright",
-                  "show-report",
-                  ...
-                )
-              )
-            }
+      with_dir("tests", {
+        with_dir("playwright", {
+          system2(
+            "npx",
+            c(
+              "playwright",
+              "show-report",
+              ...
+            )
           )
-        }
-      )
+        })
+      })
     }
   )
 }
