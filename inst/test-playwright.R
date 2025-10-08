@@ -13,8 +13,8 @@ test_that("playwright tests are working", {
     )
   })
   # Exit with code 0 means that the tests passed
-  expect_equal(
-    res,
-    0
+  expect(
+    res == 0,
+    "The playwright tests did not pass"
   )
 })
