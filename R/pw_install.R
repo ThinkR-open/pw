@@ -43,4 +43,7 @@ pw_install <- function(
       )
     }
   )
+  usethis::use_build_ignore(
+    "tests/playwright"
+  )
 }

@@ -80,6 +80,10 @@ pw_init <- function(
     }
   )
 
+  usethis::use_build_ignore(
+    "tests/playwright"
+  )
+
   cli_alert_success(
     "Playwright project initialized successfully.\nTry running devtools::test() to see the tests in action."
   )

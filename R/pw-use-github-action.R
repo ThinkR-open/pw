@@ -6,13 +6,9 @@
 #'   pw_use_github_action()
 #' }
 #' @export
-#' @importFrom rlang check_installed
+#' @importFrom usethis use_github_action
 pw_use_github_action <- function() {
-  check_installed(
-    "usethis",
-    "to add GitHub Actions to your project"
-  )
-  usethis::use_github_action(
+  use_github_action(
     url = "https://github.com/ThinkR-open/pw/blob/main/inst/playwright.yml"
   )
 }
