@@ -65,16 +65,7 @@
 <div class="section level2">
 <h2 id="workflow">Workflow<a class="anchor" aria-label="anchor" href="#workflow"></a>
 </h2>
-<pre class="mermaid"><code>flowchart
-   subgraph dev["Development"]
-      test["tests"] --&gt; |"Generate"| pw_codegen["pw_codegen()"]
-      test --&gt; |"Run"| pw_test["pw_test()"]
-      test --&gt; |"View"| pw_show_report["pw_show_report()"]
-   end
-   subgraph setup["Setup"]
-      is_this["Is this a new project"] --&gt;|"Yes"| init["pw_init()"]
-      is_this --&gt;|"No"| existing["pw_install()"]
-   end</code></pre>
+<p><img src="reference/figures/playwright_workflow_setup.svg"></p>
 <div class="section level3">
 <h3 id="requirements">Requirements<a class="anchor" aria-label="anchor" href="#requirements"></a>
 </h3>
@@ -88,7 +79,7 @@
 <h3 id="initializing-playwright-testing">Initializing Playwright Testing<a class="anchor" aria-label="anchor" href="#initializing-playwright-testing"></a>
 </h3>
 <p>To set up Playwright testing in your <a href="https://thinkr-open.github.io/golem/" class="external-link">golem</a> project, execute the following command:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">pw</span><span class="fu">::</span><span class="fu"><a href="reference/pw_init.html">pw_init</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>This function will:</p>
 <ol style="list-style-type: decimal">
@@ -110,7 +101,7 @@
 <h3 id="running-the-tests">Running the Tests<a class="anchor" aria-label="anchor" href="#running-the-tests"></a>
 </h3>
 <p>To execute the Playwright tests, use the following command in R:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">pw</span><span class="fu">::</span><span class="fu"><a href="reference/pw_test.html">pw_test</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
@@ -122,8 +113,8 @@
 <h3 id="running-playwright-commands-from-the-terminal">Running Playwright Commands from the Terminal<a class="anchor" aria-label="anchor" href="#running-playwright-commands-from-the-terminal"></a>
 </h3>
 <p>For manual execution of Playwright commands, navigate to the <code>tests/playwright</code> directory:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="bu">cd</span> tests/playwright</span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="ex">npx</span> playwright test</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="bu">cd</span> tests/playwright</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="ex">npx</span> playwright test</span></code></pre></div>
 </div>
 </div>
 <div class="section level2">

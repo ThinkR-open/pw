@@ -15,18 +15,7 @@ pak::pak("thinkr-open/pw")
 
 ## Workflow
 
-``` mermaid
-flowchart
-   subgraph dev["Development"]
-      test["tests"] --> |"Generate"| pw_codegen["pw_codegen()"]
-      test --> |"Run"| pw_test["pw_test()"]
-      test --> |"View"| pw_show_report["pw_show_report()"]
-   end
-   subgraph setup["Setup"]
-      is_this["Is this a new project"] -->|"Yes"| init["pw_init()"]
-      is_this -->|"No"| existing["pw_install()"]
-   end
-```
+![](reference/figures/playwright_workflow_setup.svg)
 
 ### Requirements
 
